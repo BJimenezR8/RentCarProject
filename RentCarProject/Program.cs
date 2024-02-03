@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using RentCarProject.Models;
+
 namespace RentCarProject
 {
     public class Program
@@ -8,6 +12,10 @@ namespace RentCarProject
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<RentCarProjectContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
+
 
             var app = builder.Build();
 
