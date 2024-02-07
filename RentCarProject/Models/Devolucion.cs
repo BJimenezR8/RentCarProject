@@ -9,13 +9,13 @@ public partial class Devolucion
     [Key]
     public int? NoRenta { get; set; }
 
-    public int? IdEmpleado { get; set; }
+    public string? IdEmpleado { get; set; }
 
-    public int? IdVehiculo { get; set; }
+    public string? IdVehiculo { get; set; }
 
-    public int? IdCliente { get; set; }
+    public string? IdCliente { get; set; }
 
-    public int? FechaDevolucion { get; set; }
+    public string? FechaDevolucion { get; set; }
 
     public int? MontoxDia { get; set; }
 
