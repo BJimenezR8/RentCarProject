@@ -21,6 +21,8 @@ namespace RentCarProject.Controllers
         // GET: Modeloes
         public async Task<IActionResult> Index()
         {
+            var marcas = from Marca in _context.Marca select Marca;
+            ViewBag.Marcas = marcas.ToList<Marca>();
             return View(await _context.Modelo.ToListAsync());
         }
 
