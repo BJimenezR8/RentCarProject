@@ -12,7 +12,7 @@ using RentCarProject.Models;
 namespace RentCarProject.Migrations
 {
     [DbContext(typeof(RentCarProjectContext))]
-    [Migration("20240207015014_InicialCreateDb")]
+    [Migration("20240207134249_InicialCreateDb")]
     partial class InicialCreateDb
     {
         /// <inheritdoc />
@@ -33,14 +33,14 @@ namespace RentCarProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdClientes"));
 
-                    b.Property<int?>("Cedula")
-                        .HasColumnType("int");
+                    b.Property<string>("Cedula")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("LimiteCredito")
-                        .HasColumnType("int");
+                    b.Property<string>("LimiteCredito")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("NoTarjetaCr")
-                        .HasColumnType("int");
+                    b.Property<string>("NoTarjetaCr")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
@@ -122,14 +122,14 @@ namespace RentCarProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("IdEmpleado"));
 
-                    b.Property<int?>("Cedula")
-                        .HasColumnType("int");
+                    b.Property<string>("Cedula")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Estado")
-                        .HasColumnType("int");
+                    b.Property<string>("Estado")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("FechaIngreso")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("FechaIngreso")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
@@ -174,6 +174,27 @@ namespace RentCarProject.Migrations
                     b.HasKey("IdTransaccion");
 
                     b.ToTable("Inspeccion");
+                });
+
+            modelBuilder.Entity("RentCarProject.Models.LoginUsuario", b =>
+                {
+                    b.Property<int>("IdUsuario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuario"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdUsuario");
+
+                    b.ToTable("LoginUsuario");
                 });
 
             modelBuilder.Entity("RentCarProject.Models.Marca", b =>

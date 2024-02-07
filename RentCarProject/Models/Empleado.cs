@@ -17,7 +17,7 @@ public partial class Empleado
 
     public int? PorcientoComision { get; set; }
 
-    public DateTime? FechaIngreso { get; set; }
+    public DateTime FechaIngreso { get; set; }
 
     public string? Estado { get; set; }
 }
