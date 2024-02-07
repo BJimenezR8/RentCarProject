@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RentCarProject.Models;
+using System.Configuration;
 
 namespace RentCarProject
 {
@@ -15,6 +16,9 @@ namespace RentCarProject
 
             builder.Services.AddDbContext<RentCarProjectContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
+
+            builder.Services.AddDbContext<RentCarProjectContext>(options =>
+     options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
 
             var app = builder.Build();

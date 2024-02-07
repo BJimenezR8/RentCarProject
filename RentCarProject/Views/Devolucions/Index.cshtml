@@ -1,0 +1,77 @@
+﻿@model IEnumerable<RentCarProject.Models.Devolucion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEmpleado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdVehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaDevolucion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MontoxDia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadDeDias)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comentario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEmpleado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdVehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaDevolucion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MontoxDia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadDeDias)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.NoRenta">Edit</a> |
+                    <a asp-action="Details" class=" btn btn-primary" asp-route-id="@item.NoRenta">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger"  asp-route-id="@item.NoRenta">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

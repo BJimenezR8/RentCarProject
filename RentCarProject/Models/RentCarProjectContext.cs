@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using RentCarProject.Models;
 
 namespace RentCarProject.Models;
 
@@ -43,4 +44,24 @@ public partial class RentCarProjectContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+public DbSet<RentCarProject.Models.Marca> Marca { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Cliente> Cliente { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Devolucion> Devolucion { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Empleado> Empleado { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Inspeccion> Inspeccion { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Modelo> Modelo { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.TipoCombustible> TipoCombustible { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.TiposVehiculo> TiposVehiculo { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Vehiculo> Vehiculo { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.LoginUsuario> LoginUsuario { get; set; } = default!;
 }

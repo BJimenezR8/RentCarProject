@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace RentCarProject.Models;
 
 public partial class Modelo
 {
+    [Key]
     public int? Id { get; set; }
 
     public int? IdMarca { get; set; }

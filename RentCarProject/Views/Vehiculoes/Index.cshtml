@@ -1,0 +1,83 @@
+﻿@model IEnumerable<RentCarProject.Models.Vehiculo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn-secondary" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoChasis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoMotor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoPlaca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoVehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdMarca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdModelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoCombustible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoChasis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoMotor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoPlaca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoVehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdMarca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdModelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoCombustible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.IdVehiculo">Edit</a> |
+                    <a asp-action="Details" class=" btn btn-primary" asp-route-id="@item.IdVehiculo">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.IdVehiculo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
