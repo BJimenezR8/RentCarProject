@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    var marcas = (List<Marca>)ViewBag.Marcas;
 }
 
 <h1>Details</h1>
@@ -11,10 +12,11 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdMarca)
+            Marca
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdMarca)
+            @Html.DisplayFor(modelItem => marcas.Where(marc => marc.IdMarca == modelItem.IdMarca).FirstOrDefault().Descripcion)
+            @* @Html.DisplayFor(model => model.IdMarca) *@
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Descripcion)

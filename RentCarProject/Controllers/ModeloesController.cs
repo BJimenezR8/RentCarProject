@@ -42,24 +42,29 @@ namespace RentCarProject.Controllers
             }
 
             //crear un listado de marcas
-            
-            
 
+            var marcas = from Marca in _context.Marca select Marca;
+            ViewBag.Marcas = marcas.ToList<Marca>();
             return View(modelo);
         }
 
         // GET: Modeloes/Create
         public async Task<IActionResult> Create()
         {
+            ViewBag.MarcasItems = await MarcasSelecListItems(-1);
+            return View();
+        }
+
+        private async Task<List<SelectListItem>> MarcasSelecListItems(int? idmarca)
+        {
             var marcas = from Marca in _context.Marca select Marca;
             // convertir las marcas en un selectList
             List<SelectListItem> marcasSelectItems = new List<SelectListItem>();
             await marcas.ForEachAsync(marcaItem =>
             {
-                marcasSelectItems.Add(new SelectListItem { Text = marcaItem.Descripcion, Value = marcaItem.IdMarca.ToString(), Selected = false });
+                marcasSelectItems.Add(new SelectListItem { Text = marcaItem.Descripcion, Value = marcaItem.IdMarca.ToString(), Selected = (marcaItem.IdMarca==idmarca) });
             });
-            ViewBag.MarcasItems = marcasSelectItems;
-            return View();
+            return marcasSelectItems;
         }
 
         // POST: Modeloes/Create
@@ -90,7 +95,9 @@ namespace RentCarProject.Controllers
             if (modelo == null)
             {
                 return NotFound();
+
             }
+            ViewBag.MarcasItems = await MarcasSelecListItems(id);
             return View(modelo);
         }
 
@@ -126,6 +133,7 @@ namespace RentCarProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(modelo);
         }
 
@@ -143,7 +151,8 @@ namespace RentCarProject.Controllers
             {
                 return NotFound();
             }
-
+            var marcas = from Marca in _context.Marca select Marca;
+            ViewBag.Marcas = marcas.ToList<Marca>();
             return View(modelo);
         }
 
