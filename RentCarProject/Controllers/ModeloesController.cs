@@ -39,12 +39,24 @@ namespace RentCarProject.Controllers
                 return NotFound();
             }
 
+            //crear un listado de marcas
+            
+            
+
             return View(modelo);
         }
 
         // GET: Modeloes/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var marcas = from Marca in _context.Marca select Marca;
+            // convertir las marcas en un selectList
+            List<SelectListItem> marcasSelectItems = new List<SelectListItem>();
+            await marcas.ForEachAsync(marcaItem =>
+            {
+                marcasSelectItems.Add(new SelectListItem { Text = marcaItem.Descripcion, Value = marcaItem.IdMarca.ToString(), Selected = false });
+            });
+            ViewBag.MarcasItems = marcasSelectItems;
             return View();
         }
 
