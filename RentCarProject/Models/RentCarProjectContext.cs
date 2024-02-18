@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace RentCarProject.Models;
 
@@ -54,6 +55,13 @@ public partial class RentCarProjectContext : DbContext
             builder.Property(u => u.LastName).HasMaxLength(255);
 
         }
+
+
+
+        //public void Configure(EntityTypeBuilder<ApplicationUser> builder)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
