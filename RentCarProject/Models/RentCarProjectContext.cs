@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using ASP.NETCoreIdentityCustom.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using static RentCarProject.Data.DataRentCarProjectContext;
 
 namespace RentCarProject.Models;
 
@@ -59,4 +57,24 @@ public partial class RentCarProjectContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+public DbSet<RentCarProject.Models.Marca> Marca { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Cliente> Cliente { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Devolucion> Devolucion { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Empleado> Empleado { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Inspeccion> Inspeccion { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Modelo> Modelo { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.TipoCombustible> TipoCombustible { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.TiposVehiculo> TiposVehiculo { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.Vehiculo> Vehiculo { get; set; } = default!;
+
+public DbSet<RentCarProject.Models.LoginUsuario> LoginUsuario { get; set; } = default!;
 }

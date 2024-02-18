@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace RentCarProject.Models;
 
 public partial class Inspeccion
 {
+    [Key]
     public int? IdTransaccion { get; set; }
 
     public int? IdVehiculo { get; set; }

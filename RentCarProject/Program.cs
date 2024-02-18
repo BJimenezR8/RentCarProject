@@ -18,7 +18,6 @@ namespace RentCarProject
             builder.Services.AddDbContext<Models.RentCarProjectContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<Models.RentCarProjectContext>();
 
 
             var app = builder.Build();
