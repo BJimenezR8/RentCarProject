@@ -2,7 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RentCarProject.Models;
 using Microsoft.AspNetCore.Identity;
-using RentCarProject.Data;
 
 namespace RentCarProject
 {
@@ -18,6 +17,8 @@ namespace RentCarProject
             builder.Services.AddDbContext<Models.RentCarProjectContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
+            builder.Services.AddRazorPages();
+            builder.Services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<Models.RentCarProjectContext>();
 
 
             var app = builder.Build();
