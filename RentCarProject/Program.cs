@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RentCarProject.Models;
 using System.Configuration;
+using Microsoft.AspNetCore.Identity;
+using RentCarProject.Data;
 
 namespace RentCarProject
 {
@@ -17,8 +19,12 @@ namespace RentCarProject
             builder.Services.AddDbContext<RentCarProjectContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
 
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<IdentityContext>();
+
             builder.Services.AddDbContext<RentCarProjectContext>(options =>
      options.UseSqlServer(builder.Configuration.GetConnectionString("conexion")));
+
+            builder.Services.AddDbContext<IdentityContext>();
 
 
             var app = builder.Build();
@@ -41,6 +47,8 @@ namespace RentCarProject
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapRazorPages();
 
             app.Run();
         }

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using RentCarProject.Data;
 using RentCarProject.Models;
 
 namespace RentCarProject.Models;
 
-public partial class RentCarProjectContext : DbContext
+public partial class RentCarProjectContext : IdentityContext
 {
-    public RentCarProjectContext()
-    {
-    }
 
     public RentCarProjectContext(DbContextOptions<RentCarProjectContext> options)
         : base(options)
